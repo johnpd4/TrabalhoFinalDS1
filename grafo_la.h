@@ -12,6 +12,13 @@ typedef enum{
   PRETO /* Explorado */
 } corVertice;
 
+typedef enum{
+   START = 0,
+   END,
+   KEY,
+   ITEM
+} style;
+
 typedef struct arGrafo{
    int chaveDest; // Chave do nodo destino
    struct arGrafo *prox; // Proxima aresta
@@ -25,6 +32,10 @@ typedef struct noGrafo{
    int tSaida; // Util para DFS e BFS
    int pai; // Util para DFS e BFS
    int distInicio; // Util para BFS
+
+   int tipo;
+
+
 } NoGrafo;
 
 typedef struct{
