@@ -21,6 +21,11 @@ typedef enum{
 
 typedef struct arGrafo{
    int chaveDest; // Chave do nodo destino
+
+   int distancia;
+   int event;
+   int event_type;
+
    struct arGrafo *prox; // Proxima aresta
    tipoAresta tipo; // Util para DFS e BFS
 } ArestaGrafo;
