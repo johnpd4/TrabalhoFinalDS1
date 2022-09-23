@@ -14,13 +14,13 @@ GrafoLA *createMap(void){
 
     GrafoLA* map = criaGrafoLA(size);
 
-    criaCaminhos(map);
+    //criaCaminhos(map);
 
     return map;
 }
 
 void criaCaminhos(GrafoLA* grafo){
-    
+
     
 
 }
