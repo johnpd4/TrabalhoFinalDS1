@@ -15,6 +15,6 @@ GrafoLA *createMap(void);
 
 GrafoLA *restartMap (GrafoLA* grafo);
 
-void test(void);
+void aplicaTipos(GrafoLA* grafo);
 
 #endif

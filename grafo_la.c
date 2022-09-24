@@ -8,8 +8,10 @@ GrafoLA *criaGrafoLA(int numVertices){
    int chave;
    GrafoLA * grafo = (GrafoLA*)malloc(sizeof(GrafoLA));
    grafo->vertices = (NoGrafo*)malloc(sizeof(NoGrafo)*numVertices);
-   for (chave = 0; chave < numVertices; chave++)
+   for (chave = 0; chave < numVertices; chave++){
       grafo->vertices[chave].lista = NULL;
+      grafo->vertices[chave].tipo = -1;
+   }
    grafo->numVertices = numVertices;
    return grafo;
 }
@@ -27,7 +29,7 @@ void insereArestaGrafoLA(GrafoLA *grafo, int chave1, int chave2){
 void imprimeGrafoLA(GrafoLA *grafo){
    int chave;
    for (chave = 0; chave < grafo->numVertices; chave++){
-      printf("%d [%d/%d]\n", chave, grafo->vertices[chave].tEntrada, grafo->vertices[chave].tSaida);
+      printf("%d [%d/%d] %d\n", chave, grafo->vertices[chave].tEntrada, grafo->vertices[chave].tSaida, grafo->vertices[chave].tipo);
       // Mostra distInicio no resultado do BFS
       // printf("%d [%d/%d] %d\n", chave, grafo->vertices[chave].tEntrada, grafo->vertices[chave].tSaida, grafo->vertices[chave].distInicio); 
    }

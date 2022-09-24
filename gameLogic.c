@@ -3,18 +3,12 @@
 #include <time.h>
 #include "gameLogic.h"
 
-int random(void){
-    srand(time(NULL));
-    return rand();
-}
-
-
 GrafoLA *createMap(void){
-    int size = (random() % 15) + 1;
+    int size = (rand() % 13) + 2;
 
     GrafoLA* map = criaGrafoLA(size);
 
-    //aplicaTipos(map);
+    aplicaTipos(map);
     //criaCaminhos(map);
 
     return map;
@@ -25,7 +19,7 @@ GrafoLA *createMap(void){
     Aplica os valores das distancias entre cada nodo no valor distancia da struct arestas
 */
 void criaCaminhos(GrafoLA* grafo){
-
+    
 }
 
 // aplicaTipos : GrafoLA -> void
@@ -33,12 +27,24 @@ void criaCaminhos(GrafoLA* grafo){
     Aplica os tipos para cada nodo do grafo respeitando a quantidade ideal para cada tipo. START & END só podem exister 1
     Usar style enum
 */
-void aplicaTipos(GrafoLA* GrafoLA){
+void aplicaTipos(GrafoLA* grafo){
+    int key = rand() % grafo->numVertices;
+    grafo->vertices[key].tipo = START;
+    if(key >= grafo->numVertices){
+        key--;
+    }else{
+        key++;
+    }
+    grafo->vertices[key].tipo = END;
 
+    for(int i = 0; i < grafo->numVertices; i++){
+        if(grafo->vertices[i].tipo == -1){
+            grafo->vertices[i].tipo = (rand() % 2) + 2;
+        }
+    }
 }
 
 GrafoLA *restartMap (GrafoLA* grafo){
     destroiGrafoLA(grafo);
-    grafo = createMap();
-    return grafo;
+    return createMap();
 }
